@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miel Naturel | Ma Petite Entreprise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .honey-theme { background-color: #FFFDF5; }
+        .btn-honey { background-color: #D97706; color: white; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .shadow-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .honey-shimmer {
+            position: relative;
+            display: inline-block;
+            /* Dégradé doré simulant l'éclat */
+            background: linear-gradient(
+                to right, 
+                #ffffff 0%, 
+                #fbbf24 10%, 
+                #ffffff 20%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Animation de balayage infinie */
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Ombre portée pour garder le texte lisible sur l'image de l'équipe */
+        .shadow-premium {
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+        }
+    </style>
+</head>
+<body class="honey-theme font-sans text-gray-800">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-amber-600 flex items-center">
+                <img src="logo.png" alt="Logo MonMiel" class="w-10 h-10 mr-2 rounded-full object-cover">
+                ISLAND ORGANIC BEE
+            </h1>
+                        <div class="flex space-x-3 text-sm font-medium">
+                <button onclick="window.showPage('home')" class="hover:text-amber-600">Accueil</button>
+                <button onclick="window.showPage('products')" class="hover:text-amber-600">Boutique</button>
+                <button onclick="window.showPage('contact')" class="hover:text-amber-600">Contact</button>
+                <button onclick="window.showPage('admin')" class="bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-300">
+                    <i class="fas fa-user-shield"></i> Admin
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="tab-content active">
+        <div class="relative h-96 flex items-center justify-center text-white text-center px-6 overflow-hidden">
+            
+            <img src="image1.png" alt="Équipe Island Organic Bee aux Comores" class="absolute inset-0 w-full h-full object-cover z-0">
+            
+            <div class="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+            
+            <div class="relative z-20 max-w-xl">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-3 leading-tight animate-fade-up shadow-premium">
+                    <span class="honey-shimmer">Miel 100% Pur & Artisanal des Comores</span>
+                </h2>
+                
+                <p class="text-lg md:text-xl mb-6 font-medium animate-fade-up" style="animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards;">
+                    De notre rucher de Mdjoiezi Hambou directement à votre table.
+                </p>
+                
+                <button onclick="showPage('products')" 
+                        class="bg-amber-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-amber-600 transition duration-300 animate-fade-up"
+                        style="animation-delay: 0.6s; opacity: 0; animation-fill-mode: forwards;">
+                    Découvrir nos produits
+                </button>
+            </div>
+        </div>
+        
+        <div class="p-8 max-w-2xl mx-auto text-center">
+            <h3 class="text-2xl font-bold mb-4">À Propos de Nous</h3>
+            <p class="text-gray-600 leading-relaxed">
+                Notre entreprise se consacre à la récolte d'un miel naturel, sans additifs. 
+                Nous respectons le cycle de vie des abeilles pour vous offrir un produit d'exception.
+            </p>
+        </div>
+    </section>
+    
+    <section id="products" class="tab-content p-4 max-w-6xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-6">Nos Miels & Services</h2>
+        
+        <div id="product-list" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            </div>
+
+        <h2 class="text-2xl font-bold text-center mb-6">Nos Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-amber-100 flex flex-col">
+                <img src="image2.png" alt="Formation en apiculture" class="w-full h-40 object-cover">
+                <div class="p-5 flex-grow">
+                    <h4 class="font-bold text-lg mb-2 text-amber-800">Formation en apiculture</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Nous partageons notre expertise à travers des formations complètes pour vous initier ou vous perfectionner dans l'art de l'apiculture bio.
+                    </p>
+                </div>
+                <div class="p-5 pt-0">
+                    <button onclick="window.contactWhatsApp('Formation en apiculture')" class="w-full bg-white border-2 border-amber-500 text-amber-600 py-2 rounded-lg font-bold text-sm hover:bg-amber-50 transition">
+                        En savoir plus
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-amber-100 flex flex-col">
+                <img src="image3.png" alt="Ateliers de sensibilisation" class="w-full h-40 object-cover">
+                <div class="p-5 flex-grow">
+                    <h4 class="font-bold text-lg mb-2 text-amber-800">Ateliers de sensibilisation</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Découvrez le monde fascinant des abeilles et le processus de fabrication du miel lors de nos ateliers ludiques et éducatifs.
+                    </p>
+                </div>
+                <div class="p-5 pt-0">
+                    <button onclick="window.contactWhatsApp('Ateliers de sensibilisation')" class="w-full bg-white border-2 border-amber-500 text-amber-600 py-2 rounded-lg font-bold text-sm hover:bg-amber-50 transition">
+                        En savoir plus
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-amber-100 flex flex-col">
+                <img src="image4.png" alt="Intervention sur le terrain" class="w-full h-40 object-cover">
+                <div class="p-5 flex-grow">
+                    <h4 class="font-bold text-lg mb-2 text-amber-800">Intervention sur le terrain</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Pour la gestion des essaims ou l'installation de ruches, notre équipe intervient pour vous accompagner et assurer la protection des abeilles.
+                    </p>
+                </div>
+                <div class="p-5 pt-0">
+                    <button onclick="window.contactWhatsApp('Intervention sur le terrain')" class="w-full bg-white border-2 border-amber-500 text-amber-600 py-2 rounded-lg font-bold text-sm hover:bg-amber-50 transition">
+                        En savoir plus
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="tab-content p-6 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-6">Contactez-nous</h2>
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <p class="font-bold mb-2"><i class="fas fa-phone text-amber-600"></i> Téléphone</p>
+                    <p class="mb-4">+269 340 19 30</p>
+                    
+                    <p class="font-bold mb-2"><i class="fas fa-envelope text-amber-600"></i> Email</p>
+                    <p class="mb-4">islandorganicbee.km@gmail.com</p>
+                    
+                    <p class="font-bold mb-2"><i class="fas fa-map-marker-alt text-amber-600"></i> Localisation</p>
+                    <p>Mdjoiezi Hambou Comores</p>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Message envoyé !');" class="space-y-4">
+                    <input type="text" placeholder="Votre Nom" class="w-full border p-2 rounded">
+                    <textarea placeholder="Votre message" class="w-full border p-2 rounded h-24"></textarea>
+                    <button class="bg-amber-600 text-white w-full py-2 rounded font-bold">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="admin" class="tab-content p-6 max-w-4xl mx-auto">
+        <div class="bg-white rounded-xl shadow-2xl border-2 border-amber-100 p-6">
+            <h2 class="text-2xl font-bold text-amber-800 mb-6 flex items-center">
+                <i class="fas fa-tools mr-2"></i> Gestion de la Boutique
+            </h2>
+            
+            <div class="bg-amber-50 p-4 rounded-lg mb-8">
+                <h3 class="font-bold mb-3">Ajouter un nouvel article</h3>
+                <div class="grid grid-cols-1 gap-3">
+                    <input type="text" id="adm-name" placeholder="Nom du miel" class="p-2 border rounded">
+                    <input type="number" id="adm-price" placeholder="Prix" class="p-2 border rounded">
+                    
+                    <label class="block text-sm font-medium text-gray-700">Photo du produit :</label>
+                    <input type="file" id="adm-image" accept="image/*" class="p-1 border rounded bg-white">
+                    
+                    <select id="adm-range" class="p-2 border rounded">
+                        <option value="Miel Toute Fleur">Miel Toute Fleur</option>
+                    </select>
+                    <button onclick="window.handleAdminAdd()" class="bg-green-600 text-white font-bold py-2 rounded shadow">Publier l'article</button>
+                </div>
+            </div>
+
+            <h3 class="font-bold mb-3">Articles en ligne</h3>
+            <div id="admin-list" class="space-y-2">
+                </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/2693401930" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <footer class="bg-amber-950 text-white py-12 mt-12">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div>
+                <h4 class="font-bold text-amber-500 mb-4 uppercase tracking-widest text-sm">Liens utiles</h4>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><button onclick="showPage('home')" class="hover:text-white">Accueil</button></li>
+                    <li><button onclick="showPage('products')" class="hover:text-white">Boutique & Services</button></li>
+                    <li><button onclick="showPage('contact')" class="hover:text-white">Nous contacter</button></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-amber-500 mb-4 uppercase tracking-widest text-sm">Légal</h4>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><a href="#" class="hover:text-white">Mentions Légales</a></li>
+                    <li><a href="#" class="hover:text-white">Politique de Confidentialité</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-amber-500 mb-4 uppercase tracking-widest text-sm">Contact</h4>
+                <p class="text-sm text-gray-300">
+                    <i class="fas fa-map-marker-alt mr-2"></i> Mdjoiezi Hambou, Comores
+                </p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="https://www.facebook.com/Island Organic Bee KM" target="_blank" class="text-xl hover:text-amber-500">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/Island Organic Bee KM" target="_blank" class="text-xl hover:text-amber-500">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center text-xs text-gray-500 mt-12 border-t border-amber-900 pt-6">
+            © Island Organic Bee | Tous droits réservés.
+        </div>
+    </footer>
+
+    <script type="module">
+        // 1. Importation des bibliothèques Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getStorage, ref, uploadString, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
+        // 2. Votre configuration Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBe-Ij2ft14kzafAzzZOltcUpCMhnatHls",
+            authDomain: "islandorganicbee-53eb0.firebaseapp.com",
+            projectId: "islandorganicbee-53eb0",
+            storageBucket: "islandorganicbee-53eb0.firebasestorage.app",
+            messagingSenderId: "545612856946",
+            appId: "1:545612856946:web:fb6271449f9069efba0ceb",
+            measurementId: "G-X282Q6WJKX"
+        };
+
+        // 3. Initialisation
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+        const inventoryCol = collection(db, "miel_inventory");
+
+        const ADMIN_PASSWORD = "Kulthum2015"; 
+        let inventory = [];
+
+        // --- SYNCHRONISATION EN TEMPS RÉEL ---
+        onSnapshot(inventoryCol, (snapshot) => {
+            inventory = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            updateUI();
+        });
+
+        // --- NAVIGATION (Attaché à window pour le HTML) ---
+        window.showPage = (id) => {
+            if (id === 'admin') {
+                const pswd = prompt("Accès administrateur requis :");
+                if (pswd !== ADMIN_PASSWORD) {
+                    alert("Accès refusé !");
+                    return;
+                }
+            }
+            document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
+        };
+
+        // --- AJOUTER UN PRODUIT ---
+        window.handleAdminAdd = async () => {
+            const name = document.getElementById('adm-name').value;
+            const price = document.getElementById('adm-price').value;
+            const range = document.getElementById('adm-range').value;
+            const imageFile = document.getElementById('adm-image').files[0];
+
+            if (name && price && imageFile) {
+                const reader = new FileReader();
+                reader.onload = async (e) => {
+                    try {
+                        // On enregistre l'image directement dans Firestore (plus besoin de Storage !)
+                        await addDoc(inventoryCol, {
+                            name,
+                            price: parseFloat(price),
+                            range,
+                            img: e.target.result, // L'image est stockée ici en texte
+                            isPromo: false,
+                            createdAt: Date.now()
+                        });
+                        alert("Produit publié avec succès sur Firestore !");
+                        
+                        // Réinitialisation du formulaire
+                        document.getElementById('adm-name').value = "";
+                        document.getElementById('adm-price').value = "";
+                        document.getElementById('adm-image').value = "";
+                    } catch (error) {
+                        console.error(error);
+                        alert("Erreur Firestore : Vérifiez vos règles dans l'onglet Firestore Database.");
+                    }
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                alert("Veuillez remplir tous les champs.");
+            }
+        };
+
+        // --- MISE À JOUR DE L'INTERFACE ---
+        function updateUI() {
+            const productList = document.getElementById('product-list');
+            const adminList = document.getElementById('admin-list');
+            
+            productList.innerHTML = "";
+            adminList.innerHTML = "";
+
+            inventory.forEach(item => {
+                const promoBadge = item.isPromo ? `<span class="bg-red-500 text-white text-[10px] px-2 py-1 rounded-full absolute top-2 right-2 font-bold animate-pulse">PROMO</span>` : "";
+                
+                productList.innerHTML += `
+                    <div class="relative bg-white rounded-xl shadow-sm overflow-hidden border border-amber-100">
+                        ${promoBadge}
+                        <img src="${item.img}" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">${item.range}</span>
+                            <h4 class="text-lg font-bold">${item.name}</h4>
+                            <p class="text-xl font-black text-amber-700 mt-1">${item.price} <small>KMF</small></p>
+                            <button onclick="window.contactWhatsApp('${item.name}')" class="w-full mt-3 bg-amber-500 text-white py-2 rounded-lg font-bold text-sm">
+                                Commander
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                adminList.innerHTML += `
+                    <div class="flex items-center justify-between bg-white p-3 rounded border shadow-sm mb-2">
+                        <div class="flex items-center">
+                            <img src="${item.img}" class="w-10 h-10 rounded-full object-cover mr-3 border">
+                            <div><p class="font-bold text-sm">${item.name}</p></div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="window.editPrice('${item.id}')" class="text-blue-500 p-2"><i class="fas fa-edit"></i></button>
+                            <button onclick="window.deleteItem('${item.id}')" class="text-red-500 p-2"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // --- MODIFIER PRIX ---
+        window.editPrice = async (id) => {
+            const item = inventory.find(p => p.id === id);
+            const newPrice = prompt(`Nouveau prix pour ${item.name} :`, item.price);
+            if (newPrice) {
+                await updateDoc(doc(db, "miel_inventory", id), { price: parseFloat(newPrice), isPromo: true });
+            }
+        };
+
+        // --- SUPPRIMER ---
+        window.deleteItem = async (id) => {
+            if(confirm("Supprimer définitivement ?")) {
+                await deleteDoc(doc(db, "miel_inventory", id));
+            }
+        };
+
+        // --- WHATSAPP ---
+        window.contactWhatsApp = (name) => {
+            const text = encodeURIComponent("Bonjour Island Organic Bee, je souhaite commander : " + name);
+            window.open(`https://wa.me/2693401930?text=${text}`, '_blank');
+        };
+        </script>
+</body>
+</html>
