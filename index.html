@@ -75,6 +75,7 @@
                 <button onclick="showPage('home')" class="hover:text-amber-600 transition">Accueil</button>
                 <button onclick="showPage('products')" class="hover:text-amber-600 transition">Boutique</button>
                 <button onclick="showPage('blog')" class="hover:text-amber-600 transition">Blog</button>
+                <button onclick="showPage('storytelling')" class="hover:text-amber-600 transition">Storytelling</button>
                 <button onclick="showPage('contact')" class="hover:text-amber-600 transition">Contact</button>
                 
                 <button onclick="showPage('admin')" class="bg-amber-100 p-2 rounded-full text-amber-800 hover:bg-amber-200 transition">
@@ -87,17 +88,20 @@
     <section id="home" class="tab-content active">
         <div class="relative h-96 flex items-center justify-center text-white text-center px-6 overflow-hidden">
             
-            <img src="image1.png" alt="Équipe Island Organic Bee aux Comores" class="absolute inset-0 w-full h-full object-cover z-0">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                <source src="video1.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
             
             <div class="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
             
             <div class="relative z-20 max-w-xl">
                 <h2 class="text-4xl md:text-5xl font-extrabold mb-3 leading-tight animate-fade-up shadow-premium">
-                    <span class="honey-shimmer">Miel 100% Pur & Artisanal des Comores</span>
+                    <span class="honey-shimmer">Le goût authentique des Comores, récolté avec passion</span>
                 </h2>
                 
                 <p class="text-lg md:text-xl mb-6 font-medium animate-fade-up" style="animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards;">
-                    De notre rucher de Mdjoiezi Hambou directement à votre table.
+                    De nos ruchers à vos tables, découvrez un miel brut, naturel et récolté dans le respect des abeilles.
                 </p>
                 
                 <button onclick="showPage('products')" 
@@ -108,12 +112,55 @@
             </div>
         </div>
         
-        <div class="p-8 max-w-2xl mx-auto text-center">
-            <h3 class="text-2xl font-bold mb-4">À Propos de Nous</h3>
-            <p class="text-gray-600 leading-relaxed">
-                Notre entreprise se consacre à la récolte d'un miel naturel, sans additifs. 
-                Nous respectons le cycle de vie des abeilles pour vous offrir un produit d'exception.
-            </p>
+        <div class="py-12 px-6 max-w-5xl mx-auto">
+            <!-- En-tête de section -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3 mb-4">
+                    À Propos de Nous
+                </h3>
+                <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                    <strong class="text-amber-800">Island Organic Bee</strong> est une entreprise comorienne engagée dans la production d'un miel naturel d'exception et la promotion d'une apiculture éco-responsable.
+                </p>
+            </div>
+
+            <!-- 3 Cartes d'Engagements / Piliers -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Pillar 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center mx-auto mb-4 text-xl">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">100% Pur & Brut</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Un miel récolté en harmonie avec la nature, garanti sans additifs ni transformation industrielle.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center mx-auto mb-4 text-xl">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">Biodiversité Protected</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Préservation des abeilles locales et protection du patrimoine génétique des Comores.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition text-center">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center mx-auto mb-4 text-xl">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">Impact Local</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Sensibilisation des communautés et formation des futurs apiculteurs pour valoriser notre savoir-faire.
+                    </p>
+                </div>
+
+            </div>
         </div>
     </section>
     
@@ -172,6 +219,46 @@
             </div>
 
         </div>
+
+        <!-- SECTION AVIS & NOTATION -->
+        <div class="mt-16 pt-10 border-t border-amber-200 max-w-4xl mx-auto">
+            <h3 class="text-3xl font-extrabold text-center text-amber-900 mb-2">Avis & Témoignages Clients</h3>
+            <p class="text-center text-gray-600 mb-8">Découvrez les retours de nos clients ou partagez votre expérience.</p>
+
+            <!-- Formulaire d'ajout d'avis -->
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-amber-100 mb-10">
+                <h4 class="text-xl font-bold text-amber-800 mb-4">Donnez votre avis</h4>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Votre Nom</label>
+                        <input type="text" id="review-name" placeholder="Ex: Oummu" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Note (sur 5 étoiles)</label>
+                        <div class="flex space-x-2 text-2xl text-amber-400 cursor-pointer" id="star-rating-select">
+                            <i class="far fa-star" onclick="setRating(1)"></i>
+                            <i class="far fa-star" onclick="setRating(2)"></i>
+                            <i class="far fa-star" onclick="setRating(3)"></i>
+                            <i class="far fa-star" onclick="setRating(4)"></i>
+                            <i class="far fa-star" onclick="setRating(5)"></i>
+                        </div>
+                        <input type="hidden" id="review-rating" value="5">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Votre Message</label>
+                        <textarea id="review-text" placeholder="Racontez-nous ce que vous avez pensé de notre miel..." class="w-full p-3 border rounded-lg h-24 focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                    </div>
+                    <button onclick="window.addReview()" class="w-full bg-amber-600 text-white font-bold py-3 rounded-lg hover:bg-amber-700 transition shadow-md">
+                        Publier mon avis
+                    </button>
+                </div>
+            </div>
+
+            <!-- Liste des avis publiés -->
+            <div id="reviews-display" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Les avis s'afficheront ici automatiquement -->
+            </div>
+        </div>
     </section>
 
     <section id="blog" class="tab-content p-6 max-w-6xl mx-auto">
@@ -228,6 +315,29 @@
         </div>
     </section>
 
+    <section id="storytelling" class="tab-content py-12 px-6 max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 border border-amber-100 shadow-md">
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-amber-900">Notre Histoire</h2>
+                <p class="text-amber-600 font-semibold mt-2">Derrière chaque pot de miel, il y a une histoire.</p>
+            </div>
+
+            <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
+                <p>
+                    Chez <strong class="text-amber-800">Island Organic Bee</strong>, chaque récolte est réalisée avec patience et respect. Nous croyons qu'un miel d'exception commence par des abeilles en bonne santé, des fleurs préservées et des apiculteurs passionnés.
+                </p>
+                <div class="p-6 bg-amber-50 rounded-xl border-l-4 border-amber-500 my-6">
+                    <p class="font-bold text-amber-900 italic">
+                        "Notre mission est simple : produire un miel authentique tout en protégeant la biodiversité des Comores et en partageant notre savoir-faire avec les générations futures."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="tab-content p-6 max-w-4xl mx-auto">
         <h2 class="text-2xl font-bold text-center mb-6">Contactez-nous</h2>
         <div class="bg-white rounded-xl shadow-lg p-6">
@@ -267,7 +377,7 @@
                     <input type="file" id="adm-image" accept="image/*" class="p-1 border rounded bg-white">
                     
                     <select id="adm-range" class="p-2 border rounded">
-                        <option value="Miel Toute Fleur">Miel Toute Fleur</option>
+                        <option value="Miel Toute Fleur">Miel Toutes Fleurs</option>
                     </select>
                     <button onclick="window.handleAdminAdd()" class="bg-green-600 text-white font-bold py-2 rounded shadow">Publier l'article</button>
                 </div>
@@ -277,6 +387,15 @@
             <div id="admin-list" class="space-y-2">
                 </div>
         </div>
+
+            <div class="mt-8 pt-6 border-t border-amber-200">
+                <h3 class="font-bold text-lg mb-4 text-red-800 flex items-center">
+                    <i class="fas fa-comments mr-2"></i> Modération des Avis Clients
+                </h3>
+                <div id="admin-reviews-list" class="space-y-2">
+                    <!-- Liste d'administration des avis -->
+                </div>
+            </div>
     </section>
 
     <a href="https://wa.me/2693401930" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-50">
@@ -291,6 +410,7 @@
                 <ul class="space-y-2 text-sm text-gray-300">
                     <li><button onclick="showPage('home')" class="hover:text-white">Accueil</button></li>
                     <li><button onclick="showPage('products')" class="hover:text-white">Boutique & Services</button></li>
+                    <li><button onclick="showPage('storytelling')" class="hover:text-white">Storytelling</button></li>
                     <li><button onclick="showPage('contact')" class="hover:text-white">Nous contacter</button></li>
                 </ul>
             </div>
@@ -469,9 +589,124 @@
             const text = encodeURIComponent("Bonjour Island Organic Bee, je souhaite commander : " + name);
             window.open(`https://wa.me/2693401930?text=${text}`, '_blank');
         };
-        </script>
+
+        // --- GESTION DES AVIS ET ÉTOILES ---
+        const reviewsCol = collection(db, "reviews");
+        let reviewsList = [];
+        let selectedRating = 5;
+
+        // Étoiles interactives dans le formulaire
+        window.setRating = (rating) => {
+            selectedRating = rating;
+            document.getElementById('review-rating').value = rating;
+            const stars = document.querySelectorAll('#star-rating-select i');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.className = 'fas fa-star text-amber-400';
+                } else {
+                    star.className = 'far fa-star text-amber-400';
+                }
+            });
+        };
+        // Initialiser avec 5 étoiles par défaut
+        window.setRating(5);
+
+        // Écoute en temps réel de Firestore pour les avis
+        onSnapshot(reviewsCol, (snapshot) => {
+            reviewsList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            updateReviewsUI();
+        });
+
+        // Publier un nouvel avis
+        window.addReview = async () => {
+            const name = document.getElementById('review-name').value;
+            const text = document.getElementById('review-text').value;
+            const rating = parseInt(document.getElementById('review-rating').value);
+
+            if (name && text) {
+                try {
+                    await addDoc(reviewsCol, {
+                        name: name,
+                        text: text,
+                        rating: rating,
+                        createdAt: Date.now()
+                    });
+                    alert("Merci ! Votre avis a été publié.");
+                    document.getElementById('review-name').value = "";
+                    document.getElementById('review-text').value = "";
+                    window.setRating(5);
+                } catch (error) {
+                    console.error("Erreur lors de la publication de l'avis:", error);
+                    alert("Une erreur est survenue lors de l'envoi.");
+                }
+            } else {
+                alert("Veuillez saisir votre nom et votre avis.");
+            }
+        };
+
+        // Mise à jour de l'affichage des avis (Boutique & Admin)
+        function updateReviewsUI() {
+            const reviewsDisplay = document.getElementById('reviews-display');
+            const adminReviewsList = document.getElementById('admin-reviews-list');
+
+            if (reviewsDisplay) reviewsDisplay.innerHTML = "";
+            if (adminReviewsList) adminReviewsList.innerHTML = "";
+
+            if (reviewsList.length === 0 && reviewsDisplay) {
+                reviewsDisplay.innerHTML = `<p class="text-gray-500 italic text-center col-span-2">Aucun avis pour le moment. Soyez le premier à donner le vôtre !</p>`;
+            }
+
+            reviewsList.forEach(review => {
+                // Générer les étoiles HTML
+                let starsHTML = "";
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= review.rating) {
+                        starsHTML += `<i class="fas fa-star text-amber-400"></i>`;
+                    } else {
+                        starsHTML += `<i class="far fa-star text-gray-300"></i>`;
+                    }
+                }
+
+                // Affichage public dans la boutique
+                if (reviewsDisplay) {
+                    reviewsDisplay.innerHTML += `
+                        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-100 relative shadow-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-bold text-amber-900">${review.name}</h5>
+                                <div class="text-sm space-x-1">${starsHTML}</div>
+                            </div>
+                            <p class="text-gray-700 text-sm leading-relaxed italic">"${review.text}"</p>
+                        </div>
+                    `;
+                }
+
+                // Affichage dans le panneau Admin
+                if (adminReviewsList) {
+                    adminReviewsList.innerHTML += `
+                        <div class="flex items-center justify-between bg-white p-3 rounded border border-gray-200 text-sm">
+                            <div>
+                                <strong>${review.name}</strong> (${review.rating}/5 étoiles) :
+                                <span class="text-gray-600 italic">"${review.text.substring(0, 40)}..."</span>
+                            </div>
+                            <button onclick="window.deleteReview('${review.id}')" class="text-red-500 p-2 hover:bg-red-50 rounded">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Supprimer un avis (depuis l'Espace Admin)
+        window.deleteReview = async (id) => {
+            if (confirm("Voulez-vous supprimer cet avis ?")) {
+                await deleteDoc(doc(db, "reviews", id));
+            }
+        };
+    
+    </script>
+
 </body>
 
 </html>
-
 
