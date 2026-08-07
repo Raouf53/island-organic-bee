@@ -78,9 +78,9 @@
                 <button onclick="showPage('storytelling')" class="hover:text-amber-600 transition">Storytelling</button>
                 <button onclick="showPage('contact')" class="hover:text-amber-600 transition">Contact</button>
                 
-                <button onclick="showPage('admin')" class="bg-amber-100 p-2 rounded-full text-amber-800 hover:bg-amber-200 transition">
+                <!-- <button onclick="showPage('admin')" class="bg-amber-100 p-2 rounded-full text-amber-800 hover:bg-amber-200 transition">
                     <i class="fas fa-user-shield"></i>
-                </button>
+                </button>-->
             </div>
         </div>
     </nav>
@@ -479,18 +479,37 @@
         });
 
         // --- NAVIGATION (Attaché à window pour le HTML) ---
+        // --- NAVIGATION ET SÉCURITÉ ADMIN ---
         window.showPage = (id) => {
+            // Si c'est la page admin, on demande le mot de passe
             if (id === 'admin') {
-                const pswd = prompt("Accès administrateur requis :");
+                const pswd = prompt("Accès administrateur sécurisé :");
                 if (pswd !== ADMIN_PASSWORD) {
                     alert("Accès refusé !");
+                    // Redirige vers l'accueil si le mot de passe est faux
+                    showPage('home');
                     return;
                 }
             }
             document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+            const targetSection = document.getElementById(id);
+            if(targetSection) targetSection.classList.add('active');
             window.scrollTo(0,0);
         };
+
+        // 1. Détection automatique via l'URL (ex: islandorganicbee.com/?admin=true)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('admin') === 'true') {
+            window.showPage('admin');
+        }
+
+        // 2. Détection via Raccourci Clavier Secret : Ctrl + Shift + A
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+                e.preventDefault();
+                window.showPage('admin');
+            }
+        });
 
         // --- AJOUTER UN PRODUIT ---
         window.handleAdminAdd = async () => {
