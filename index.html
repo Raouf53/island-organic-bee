@@ -262,54 +262,147 @@
     </section>
 
     <section id="blog" class="tab-content p-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-8 text-amber-900">Le Coin de l'Apiculteur</h2>
+        <!-- PAGE BLOG / CONSEILS & ARTICLES -->
+        <div id="blog" class="tab-content">
+            <div class="max-w-7xl mx-auto px-4 py-8">
+                
+                <!-- En-tête de la page -->
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl font-bold text-amber-900 mb-2">Conseils & Le Saviez-Vous ?</h1>
+                    <p class="text-gray-600">Découvrez nos recettes, astuces santé, secrets d'apiculture et bienfaits du miel.</p>
+                </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
-                <div class="h-48 bg-amber-200 flex items-center justify-center">
-                    <i class="fas fa-medkit text-5xl text-amber-600"></i>
-                </div>
-                <div class="p-5">
-                    <span class="text-xs font-bold text-amber-500 uppercase">Santé</span>
-                    <h3 class="text-xl font-bold mt-2 mb-3 text-gray-800">Le miel contre le mal de gorge</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        Saviez-vous que le miel artisanal est un antibactérien naturel puissant ? Découvrez comment l'utiliser pour apaiser vos hivers...
-                    </p>
-                    <button onclick="window.contactWhatsApp('Article Mal de Gorge')" class="text-amber-700 font-bold text-sm hover:underline">
-                        Lire la suite →
-                    </button>
-                </div>
-            </div>
-    
-            <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
-                <div class="h-48 bg-amber-100 flex items-center justify-center">
-                    <i class="fas fa-utensils text-5xl text-amber-600"></i>
-                </div>
-                <div class="p-5">
-                    <span class="text-xs font-bold text-amber-500 uppercase">Recettes</span>
-                    <h3 class="text-xl font-bold mt-2 mb-3 text-gray-800">Petit-déjeuner Énergie Naturel</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        Une recette simple et rapide utilisant notre miel toute fleur pour booster votre matinée aux Comores...
-                    </p>
-                    <button onclick="window.contactWhatsApp('Article Recette')" class="text-amber-700 font-bold text-sm hover:underline">
-                        Lire la suite →
-                    </button>
-                </div>
-            </div>
-    
-            <div class="bg-white rounded-2xl shadow-sm border border-amber-100 overflow-hidden hover:shadow-md transition">
-                <div class="h-48 bg-amber-300 flex items-center justify-center">
-                    <i class="fas fa-seedling text-5xl text-amber-700"></i>
-                </div>
-                <div class="p-5">
-                    <span class="text-xs font-bold text-amber-500 uppercase">Nature</span>
-                    <h3 class="text-xl font-bold mt-2 mb-3 text-gray-800">Pourquoi choisir le Miel Naturel ?</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        Comprendre la différence entre le miel industriel et notre récolte artisanale respectueuse des abeilles...
-                    </p>
-                    <button onclick="window.contactWhatsApp('Article Pourquoi Naturel')" class="text-amber-700 font-bold text-sm hover:underline">
-                        Lire la suite →
-                    </button>
+                <!-- Grille des cartes -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+                    <!-- CARTE 1 : RECETTES -->
+                    <div class="bg-white rounded-2xl shadow-md border border-amber-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                        <div class="bg-amber-500 p-4 text-white flex items-center justify-between">
+                            <h2 class="text-xl font-bold flex items-center gap-3">
+                                <i class="fas fa-utensils text-2xl"></i> Recettes
+                            </h2>
+                            <span class="bg-amber-600 text-xs px-2 py-1 rounded-full font-semibold">Cuisine</span>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-bowl-food text-amber-500"></i> Bwe la Djungu
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-wine-bottle text-amber-500"></i> Vinaigrette au miel
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-apple-whole text-amber-500"></i> Salade de fruits au miel
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-mug-hot text-amber-500"></i> Thé au miel
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-drumstick-bite text-amber-500"></i> Marinades
+                                </li>
+                                <li class="flex items-center gap-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-cookie text-amber-500"></i> Desserts
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- CARTE 2 : SANTÉ -->
+                    <div class="bg-white rounded-2xl shadow-md border border-amber-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                        <div class="bg-amber-600 p-4 text-white flex items-center justify-between">
+                            <h2 class="text-xl font-bold flex items-center gap-3">
+                                <i class="fas fa-heart-pulse text-2xl"></i> Santé
+                            </h2>
+                            <span class="bg-amber-700 text-xs px-2 py-1 rounded-full font-semibold">Bien-être</span>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-head-side-cough text-amber-500"></i> Le miel contre le mal de gorge
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-magnifying-glass text-amber-500"></i> Comment reconnaître un vrai miel ?
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-snowflake text-amber-500"></i> Pourquoi le miel cristallise ?
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-baby text-amber-500"></i> Le miel pour les enfants ?
+                                </li>
+                                <li class="flex items-center gap-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-person-pregnant text-amber-500"></i> Le miel pendant la grossesse ?
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- CARTE 3 : APICULTURE -->
+                    <div class="bg-white rounded-2xl shadow-md border border-amber-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                        <div class="bg-amber-700 p-4 text-white flex items-center justify-between">
+                            <h2 class="text-xl font-bold flex items-center gap-3">
+                                <i class="fas fa-bugs text-2xl"></i> Apiculture
+                            </h2>
+                            <span class="bg-amber-800 text-xs px-2 py-1 rounded-full font-semibold">Nos Secret</span>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-sun text-amber-500"></i> Une journée avec nos abeilles
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-jar text-amber-500"></i> Comment est récolté notre miel ?
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-spa text-amber-500"></i> Les fleurs butinées aux Comores
+                                </li>
+                                <li class="flex items-center gap-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-shield-cat text-amber-500"></i> Le rôle des abeilles
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- CARTE 4 : BEAUTÉ -->
+                    <div class="bg-white rounded-2xl shadow-md border border-amber-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                        <div class="bg-amber-800 p-4 text-white flex items-center justify-between">
+                            <h2 class="text-xl font-bold flex items-center gap-3">
+                                <i class="fas fa-sparkles text-2xl"></i> Beauté
+                            </h2>
+                            <span class="bg-amber-900 text-xs px-2 py-1 rounded-full font-semibold">Soin</span>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-face-smile-beam text-amber-500"></i> Masque miel + curcuma
+                                </li>
+                                <li class="flex items-center gap-2 border-b pb-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-hand-holding-hand text-amber-500"></i> Gommage au miel
+                                </li>
+                                <li class="flex items-center gap-2 hover:text-amber-700 transition">
+                                    <i class="fas fa-droplet text-amber-500"></i> Hydratation naturelle
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <!-- CARTE 5 : LE SAVIEZ-VOUS ? -->
+                    <div class="bg-white rounded-2xl shadow-md border border-amber-100 hover:shadow-xl transition-all duration-300 overflow-hidden md:col-span-2 lg:col-span-1">
+                        <div class="bg-amber-900 p-4 text-white flex items-center justify-between">
+                            <h2 class="text-xl font-bold flex items-center gap-3">
+                                <i class="fas fa-lightbulb text-2xl text-yellow-300"></i> Le Saviez-vous ?
+                            </h2>
+                            <span class="bg-amber-950 text-xs px-2 py-1 rounded-full font-semibold">Anecdotes</span>
+                        </div>
+                        <div class="p-6 space-y-4 text-gray-700">
+                            <div class="p-3 bg-amber-50 rounded-lg border-l-4 border-amber-600">
+                                <p class="text-sm font-medium"><i class="fas fa-infinity text-amber-700 mr-1"></i> Le miel est le seul aliment qui ne périme jamais s'il est bien conservé !</p>
+                            </div>
+                            <div class="p-3 bg-amber-50 rounded-lg border-l-4 border-amber-600">
+                                <p class="text-sm font-medium"><i class="fas fa-fly text-amber-700 mr-1"></i> Pour produire 500g de miel, les abeilles doivent visiter environ 2 millions de fleurs.</p>
+                            </div>
+                        </div>
+                    </div>
+        
                 </div>
             </div>
         </div>
