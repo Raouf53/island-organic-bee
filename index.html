@@ -281,25 +281,66 @@
                 </div>
                 <div class="p-5">
                     <ul class="space-y-3 text-gray-700 text-sm">
-                        <li class="flex items-center gap-3 border-b pb-2 hover:text-amber-700 transition cursor-pointer">
-                            <i class="fas fa-bowl-food text-amber-500"></i> Bwe la Djungu
+                        <li onclick="openRecipeModal('bwe')" class="flex items-center justify-between border-b pb-2 hover:text-amber-700 transition cursor-pointer group">
+                            <span class="flex items-center gap-3"><i class="fas fa-bowl-food text-amber-500"></i> Bwe la Djungu</span>
+                            <i class="fas fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform"></i>
                         </li>
-                        <li class="flex items-center gap-3 border-b pb-2 hover:text-amber-700 transition cursor-pointer">
-                            <i class="fas fa-wine-bottle text-amber-500"></i> Vinaigrette au miel
+                        <li onclick="openRecipeModal('vinaigrette')" class="flex items-center justify-between border-b pb-2 hover:text-amber-700 transition cursor-pointer group">
+                            <span class="flex items-center gap-3"><i class="fas fa-wine-bottle text-amber-500"></i> Vinaigrette au miel</span>
+                            <i class="fas fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform"></i>
                         </li>
-                        <li class="flex items-center gap-3 border-b pb-2 hover:text-amber-700 transition cursor-pointer">
-                            <i class="fas fa-apple-whole text-amber-500"></i> Salade de fruits au miel
+                        <li onclick="openRecipeModal('salade')" class="flex items-center justify-between border-b pb-2 hover:text-amber-700 transition cursor-pointer group">
+                            <span class="flex items-center gap-3"><i class="fas fa-apple-whole text-amber-500"></i> Salade de fruits au miel</span>
+                            <i class="fas fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform"></i>
                         </li>
-                        <li class="flex items-center gap-3 border-b pb-2 hover:text-amber-700 transition cursor-pointer">
-                            <i class="fas fa-mug-hot text-amber-500"></i> Thé au miel
+                        <li onclick="openRecipeModal('the')" class="flex items-center justify-between border-b pb-2 hover:text-amber-700 transition cursor-pointer group">
+                            <span class="flex items-center gap-3"><i class="fas fa-mug-hot text-amber-500"></i> Thé au miel</span>
+                            <i class="fas fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform"></i>
                         </li>
-                        <li class="flex items-center gap-3 border-b pb-2 hover:text-amber-700 transition cursor-pointer">
-                            <i class="fas fa-drumstick-bite text-amber-500"></i> Marinades
+                        <li onclick="openRecipeModal('marinade')" class="flex items-center justify-between border-b pb-2 hover:text-amber-700 transition cursor-pointer group">
+                            <span class="flex items-center gap-3"><i class="fas fa-drumstick-bite text-amber-500"></i> Marinades</span>
+                            <i class="fas fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform"></i>
                         </li>
-                        <li class="flex items-center gap-3 hover:text-amber-700 transition cursor-pointer">
-                            <i class="fas fa-cookie text-amber-500"></i> Desserts
+                        <li onclick="openRecipeModal('dessert')" class="flex items-center justify-between hover:text-amber-700 transition cursor-pointer group">
+                            <span class="flex items-center gap-3"><i class="fas fa-cookie text-amber-500"></i> Desserts</span>
+                            <i class="fas fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform"></i>
                         </li>
                     </ul>
+                </div>
+            </div>
+            
+            <!-- FENÊTRE MODALE D'AFFICHAGE DU DÉTAIL DE LA RECETTE (À placer à la fin de votre page, avant </body>) -->
+            <div id="recipe-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-all duration-300">
+                <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-amber-100 relative transform transition-all scale-95 opacity-0" id="recipe-modal-card">
+                    
+                    <!-- Bouton Fermer (Croix) -->
+                    <button onclick="closeRecipeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-amber-800 bg-amber-50 p-2 rounded-full w-9 h-9 flex items-center justify-center transition">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+            
+                    <!-- Contenu dynamique -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <div id="recipe-icon" class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Recette Gourmande</span>
+                            <h3 id="recipe-title" class="text-2xl font-bold text-gray-800">Titre de la recette</h3>
+                        </div>
+                    </div>
+            
+                    <div class="bg-amber-50/60 p-4 rounded-2xl border-l-4 border-amber-500 mb-6">
+                        <p id="recipe-description" class="text-gray-700 text-sm leading-relaxed">
+                            Description de la recette...
+                        </p>
+                    </div>
+            
+                    <!-- Bouton d'action -->
+                    <div class="flex justify-end">
+                        <button onclick="closeRecipeModal()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-5 py-2.5 rounded-xl shadow-md transition">
+                            Fermer
+                        </button>
+                    </div>
                 </div>
             </div>
     
@@ -801,6 +842,76 @@
             } else {
                 alert("Veuillez saisir votre nom et votre avis.");
             }
+        };
+
+        // Base de données des recettes
+        const recipesData = {
+            bwe: {
+                title: "Bwe la Djungu",
+                subtitle: "Arachides croquantes au miel",
+                icon: "fa-bowl-food",
+                desc: "Une gourmandise traditionnelle revisitée avec une touche de miel Island Organic Bee. Les arachides grillées sont enrobées d’un caramel au miel jusqu’à obtenir une texture bien croquante et dorée. Parfait pour une petite pause gourmande !"
+            },
+            vinaigrette: {
+                title: "Vinaigrette au miel",
+                subtitle: "Sauce douce et acidulée",
+                icon: "fa-wine-bottle",
+                desc: "Une vinaigrette simple et savoureuse qui associe la douceur naturelle du miel à une touche d’acidité. Mélangez du miel, du jus de citron ou du vinaigre, de l’huile, une pincée de sel et du poivre. Une sauce idéale pour accompagner vos salades."
+            },
+            salade: {
+                title: "Salade de fruits au miel",
+                subtitle: "Fraîcheur des îles",
+                icon: "fa-apple-whole",
+                desc: "Des fruits frais de saison relevés par une petite touche de miel pour apporter naturellement douceur et gourmandise. Coupez vos fruits préférés, ajoutez un filet de miel et mélangez délicatement. Une recette fraîche, simple et rapide !"
+            },
+            the: {
+                title: "Thé au miel",
+                subtitle: "Pause réconfortante",
+                icon: "fa-mug-hot",
+                desc: "Infusez votre thé préféré, laissez tiédir quelques instants avant d'y ajouter une cuillère de notre miel pur. Le miel conserve toutes ses vertus et apporte un parfum subtil à votre boisson."
+            },
+            marinade: {
+                title: "Marinades sucrées-salées",
+                subtitle: "Pour gril et four",
+                icon: "fa-drumstick-bite",
+                desc: "Associez du miel, de la sauce soja, une pointe d'ail et du citron pour mariner vos viandes ou poissons. La cuisson caramélisera délicatement la surface pour un rendu juteux et savoureux."
+            },
+            desserts: {
+                title: "Desserts au miel",
+                subtitle: "Douceurs naturelles",
+                icon: "fa-cookie",
+                desc: "Nappez vos yaourts, crêpes ou gaufres d'un filet de miel pur pour remplacer le sucre raffiné par un apport naturel, riche en arômes et bienfaits."
+            }
+        };
+        
+        // Fonctions d'ouverture et fermeture de la modale
+        window.openRecipeModal = function(key) {
+            const data = recipesData[key];
+            if(!data) return;
+        
+            document.getElementById('recipe-title').innerText = data.title;
+            document.getElementById('recipe-description').innerText = data.desc;
+            document.getElementById('recipe-icon').innerHTML = `<i class="fas ${data.icon}"></i>`;
+        
+            const modal = document.getElementById('recipe-modal');
+            const card = document.getElementById('recipe-modal-card');
+        
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                card.classList.remove('scale-95', 'opacity-0');
+                card.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        };
+        
+        window.closeRecipeModal = function() {
+            const modal = document.getElementById('recipe-modal');
+            const card = document.getElementById('recipe-modal-card');
+        
+            card.classList.remove('scale-100', 'opacity-100');
+            card.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
         };
 
         // Mise à jour de l'affichage des avis (Boutique & Admin)
