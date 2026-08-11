@@ -531,10 +531,20 @@
                     <p class="font-bold mb-2"><i class="fas fa-map-marker-alt text-amber-600"></i> Localisation</p>
                     <p>Mdjoiezi Hambou Comores</p>
                 </div>
-                <form onsubmit="event.preventDefault(); alert('Message envoyé !');" class="space-y-4">
-                    <input type="text" placeholder="Votre Nom" class="w-full border p-2 rounded">
-                    <textarea placeholder="Votre message" class="w-full border p-2 rounded h-24"></textarea>
-                    <button class="bg-amber-600 text-white w-full py-2 rounded font-bold">Envoyer le message</button>
+                <form action="https://formspree.io/f/moeadwjj" method="POST" class="space-y-4">
+                    <!-- Champ Nom (Ajout de 'name="name"' obligatoire) -->
+                    <input type="text" name="name" placeholder="Votre Nom" required class="w-full border p-2 rounded">
+                    
+                    <!-- Champ Email (Important pour pouvoir leur répondre) -->
+                    <input type="email" name="email" placeholder="Votre Email" required class="w-full border p-2 rounded">
+                    
+                    <!-- Champ Message (Ajout de 'name="message"' obligatoire) -->
+                    <textarea name="message" placeholder="Votre message" required class="w-full border p-2 rounded h-24"></textarea>
+                    
+                    <!-- Bouton d'envoi -->
+                    <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white w-full py-2 rounded font-bold transition">
+                        Envoyer le message
+                    </button>
                 </form>
             </div>
         </div>
