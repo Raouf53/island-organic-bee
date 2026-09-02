@@ -64,24 +64,38 @@
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             
+            <!-- Logo & Titre -->
             <div class="flex items-center space-x-2">
                 <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-full object-cover">
-                <h1 class="text-lg font-extrabold text-amber-700 hidden sm:block tracking-tight">
+                <h1 class="text-lg font-extrabold text-amber-700 block tracking-tight">
                     ISLAND ORGANIC BEE
                 </h1>
             </div>
     
-            <div class="flex items-center space-x-4 text-base font-bold text-gray-700">
+            <!-- Menu Desktop (Masqué sur mobile) -->
+            <div class="hidden md:flex items-center space-x-6 text-base font-bold text-gray-700">
                 <button onclick="showPage('home')" class="hover:text-amber-600 transition">Accueil</button>
                 <button onclick="showPage('products')" class="hover:text-amber-600 transition">Boutique</button>
                 <button onclick="showPage('Coin Miel')" class="hover:text-amber-600 transition">Coin Miel</button>
                 <button onclick="showPage('Notre Histoire')" class="hover:text-amber-600 transition">Notre Histoire</button>
                 <button onclick="showPage('contact')" class="hover:text-amber-600 transition">Contact</button>
-                
-                <!-- <button onclick="showPage('admin')" class="bg-amber-100 p-2 rounded-full text-amber-800 hover:bg-amber-200 transition">
-                    <i class="fas fa-user-shield"></i>
-                </button>-->
             </div>
+    
+            <!-- Bouton Burger Mobile (Visible uniquement sous md) -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-amber-600 focus:outline-none p-2" aria-label="Ouvrir le menu">
+                    <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Menu Déroulant Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-amber-100 shadow-lg px-4 pt-2 pb-4 space-y-3 font-bold text-gray-700">
+            <button onclick="navigateTo('home')" class="block w-full text-left py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-600 transition">Accueil</button>
+            <button onclick="navigateTo('products')" class="block w-full text-left py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-600 transition">Boutique</button>
+            <button onclick="navigateTo('Coin Miel')" class="block w-full text-left py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-600 transition">Coin Miel</button>
+            <button onclick="navigateTo('Notre Histoire')" class="block w-full text-left py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-600 transition">Notre Histoire</button>
+            <button onclick="navigateTo('contact')" class="block w-full text-left py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-600 transition">Contact</button>
         </div>
     </nav>
 
@@ -1019,6 +1033,39 @@
             }
         };
     
+    </script>
+
+    <script>
+        // Basculer l'affichage du menu mobile et changer l'icône (bars / times)
+        window.toggleMobileMenu = function() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            menu.classList.toggle('hidden');
+            
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        };
+    
+        // Naviguer puis fermer automatiquement le menu mobile
+        window.navigateTo = function(pageId) {
+            if (typeof showPage === 'function') {
+                showPage(pageId);
+            }
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            if (!menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        };
     </script>
 
 </body>
